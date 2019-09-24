@@ -1,11 +1,12 @@
 import Sequelize from 'sequelize';
 import mongoose from 'mongoose';
 import User from '../app/models/User';
-import Appointment from '../app/models/Appointment';
+import Point from '../app/models/Point';
 import databaseConfig from '../config/database';
 import File from '../app/models/File';
+import Company from '../app/models/Company';
 
-const models = [User, File, Appointment];
+const models = [User, File, Point, Company];
 
 class Database {
   constructor() {
@@ -23,7 +24,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      'mongodb://localhost:27017/gobarber',
+      'mongodb://localhost:27017/worklock',
       { useNewUrlParser: true, useFindAndModify: true }
     );
   }

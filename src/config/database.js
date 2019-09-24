@@ -5,7 +5,7 @@ module.exports = {
   // username: 'tenanty',
   // password: 'sfkjKGIYG*&$DKJHJKHL',
   password: 'postgres',
-  database: 'gobarber',
+  database: 'worklock',
   define: {
     timestamps: true,
     underscored: true,
