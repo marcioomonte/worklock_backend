@@ -1,11 +1,13 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('points', {
-      id: Sequelize.INTEGER,
-      time_in: Sequelize.DATE,
-      time_out: Sequelize.DATE,
-      time_pause: Sequelize.DATE,
-      time_return: Sequelize.DATE,
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      date: Sequelize.DATE,
       user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },

@@ -6,10 +6,7 @@ class Point extends Model {
   static init(sequelize) {
     super.init(
       {
-        time_in: Sequelize.DATE,
-        time_out: Sequelize.DATE,
-        time_pause: Sequelize.DATE,
-        time_return: Sequelize.DATE,
+        date: Sequelize.DATE,
         latitude: Sequelize.INTEGER,
         longitude: Sequelize.INTEGER,
       },

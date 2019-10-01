@@ -6,11 +6,7 @@ import Point from '../models/Point';
 class PointController {
   async store(req, res) {
     const schema = Yup.object().shape({
-      company_id: Yup.number(),
-      time_in: Yup.date(),
-      time_out: Yup.date(),
-      time_pause: Yup.date(),
-      time_return: Yup.date(),
+      date: Yup.date(),
       latitude: Yup.number(),
       longitude: Yup.number(),
     });
@@ -19,9 +15,18 @@ class PointController {
       return res.status(400).json({ error: 'Validation fails' });
     }
 
-    const { time_in } = req.body;
+    const { date, latitude, longitude } = req.body;
 
-    return res.json();
+    const user = req.userId;
+
+    const point = await Point.create({
+      date,
+      latitude,
+      longitude,
+      user_id: user,
+    });
+
+    return res.json(point);
   }
 }
 
